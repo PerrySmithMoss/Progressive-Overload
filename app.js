@@ -1,3 +1,8 @@
+// Load .env variables
+if(process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
+
 const express = require('express');
 const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
