@@ -40,7 +40,7 @@ body{
 }
 
 .img img{
-	width: 500px;
+	width: 450px;
 }
 
 form{
@@ -243,6 +243,10 @@ a.sign-up-button {
 	.container{
 		grid-gap: 5rem;
 	}
+
+	.img img{
+		width: 300px;
+	}
 }
 
 @media screen and (max-width: 1000px){
@@ -256,7 +260,7 @@ a.sign-up-button {
 	}
 
 	.img img{
-		width: 400px;
+		width: 300px;
 	}
 }
 
