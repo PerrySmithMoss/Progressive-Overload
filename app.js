@@ -1,6 +1,6 @@
 // Load .env variables
 if(process.env.NODE_ENV !== "production") {
-    require("dotenv").parse();
+    require("dotenv").config();
 }
 
 const express = require('express');
@@ -56,6 +56,7 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 app.use('/public', express.static('public'));
+app.use('/workouts', require('./routes/workouts'));
 
 const PORT = process.env.PORT || 5000;
 

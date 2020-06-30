@@ -1,3 +1,57 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/5eff175192.js" crossorigin="anonymous"></script>
+    <title>Progressive Overload</title>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+    <%- include('partials/add_btn') %>
+    <div class="container">
+        <h1 class="mt-4">Dashboard</h1>
+        <p class="lead mb-3">Welcome <%= user.name %></p>
+        <% if(workouts) { %>
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% for(var workout of workouts) { %>
+        <tr>
+            <td><a href="#"><%= workouts.exercise %></a></td>
+            <td><%= workouts.date %></td>
+            <td><span class="dash-status"><%= workouts.status %></span></td>
+            <td></td>
+        </tr>
+        <% } %>
+    </tbody>
+
+    </table>
+          <% } else{ %>  
+            <h2>You have no workouts...</h2>
+         <% } %>
+        <a href="/users/logout" class="btn btn-secondary">Logout</a>         
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        M.Sidenav.init(document.querySelector('.sidenav'));
+        M.FormSelect.init(document.querySelector('#status'));
+    </script>
+</body>
+
+</html>
