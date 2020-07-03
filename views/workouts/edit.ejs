@@ -14,12 +14,13 @@
 <body>
     <%- include('../partials/navbar.ejs') %>
     <div class="container">
-<h3>Add Workout</h3>
+<h3>Edit Workout</h3>
 <div class="row">
-    <form action="/workouts" method="POST" class="col s12">
+    <form action="/workouts/<%- workouts._id %>" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
         <div class="row">
             <div class="input-field">
-                <input type="text" id="exercise" name="exercise">
+                <input type="text" id="exercise" name="exercise" value="<%= workouts.exercise %>">
                 <label for="exercise">Exercise name</label>
             </div>
         </div>
@@ -28,6 +29,7 @@
                 <select id="status" name="status">
                     <option value="public" selected>Public</option>
                     <option value="private">Private</option>
+                    <option value="public" selected><%= workouts.status %></option>
                 </select>
                 <label for="status">Status</label>
             </div>
@@ -36,7 +38,7 @@
         <div class="row">
             <div class="input-field">
                 <h5>Notes:</h5>
-                <textarea id="body" name="notes"></textarea>
+                <textarea id="body" name="notes"><%= workouts.notes %></textarea>
             </div>
         </div>
 

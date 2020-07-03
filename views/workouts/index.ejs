@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/5eff175192.js" crossorigin="anonymous"></script>
+    <!-- Custom css -->
+    <link rel="stylesheet" href="../../public/assets/css/ejs.css">
+    <title>Progressive Overload</title>
+</head>
+
+<body>
+<h1>Public Workouts</h1>
+<div class="row">
+    <% workouts.forEach(function(workout) { %>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <%- editIcon(workout.user, user, workout._id, ) %>
+                </div>
+                <div class="card-content center-align">
+                    <h5><%= workout.exercise %></h5>
+                    <p><%= stripTags(truncate(workout.notes, 150)) %></p>
+                    <br>
+                        <h4><%= workout.user.name %></h4>
+                </div>
+                <div class="card-action center-align">
+                    <a href="/workouts/<%= workout._id %>" class="btn grey">Read More</a>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    M.Sidenav.init(document.querySelector('.sidenav'));
+    M.FormSelect.init(document.querySelector('#status'));
+</script>
+</body>
+
+</html>
+
+

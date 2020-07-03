@@ -22,30 +22,44 @@
 <table class="striped">
     <thead>
         <tr>
-            <th>Title</th>
+            <th>Exercise</th>
             <th>Date</th>
+            <th>Notes</th>
             <th>Status</th>
             <th></th>
         </tr>
     </thead>
 
     <tbody>
-        <% for(var workout of workouts) { %>
+        <% workouts.forEach(function(workout) { %>
         <tr>
-            <td><a href="#"><%= workouts.exercise %></a></td>
-            <td><%= workouts.date %></td>
-            <td><span class="dash-status"><%= workouts.status %></span></td>
-            <td></td>
+            <td><a href="/workouts/<%- workout._id %>"><%= workout.exercise %></a></td>
+            <td><%= formatDate(workout.date, 'MMMM do YYYY, h:mm:ss a') %></td>
+            <td><%= stripTags(truncate(workout.notes)) %></td>
+            <td><span class="dash-status"><%= workout.status %></span></td>
+            <td>
+                <a href="/workouts/edit/<%- workout._id %>" class="btn btn-float">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+                <form action="/workouts/<%- workout._id %>" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
         </tr>
-        <% } %>
+        <% }); %>
     </tbody>
 
     </table>
           <% } else{ %>  
             <h2>You have no workouts...</h2>
          <% } %>
-        <a href="/users/logout" class="btn btn-secondary">Logout</a>         
-    </div>
+         <br>
+        <a href="/users/logout" class="btn btn-secondary">Logout</a>    
+    </div>     
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
