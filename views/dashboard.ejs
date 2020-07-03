@@ -34,7 +34,7 @@
         <% workouts.forEach(function(workout) { %>
         <tr>
             <td><a href="/workouts/<%- workout._id %>"><%= workout.exercise %></a></td>
-            <td><%= formatDate(workout.date, 'MMMM do YYYY, h:mm:ss a') %></td>
+            <td><%= formatDate(workout.date, 'MMMM Do YYYY, h:mm:ss a') %></td>
             <td><%= stripTags(truncate(workout.notes)) %></td>
             <td><span class="dash-status"><%= workout.status %></span></td>
             <td>

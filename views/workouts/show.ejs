@@ -16,27 +16,31 @@
 
 <body>
     <%- include('../partials/navbar.ejs') %>
-<h1>Public Workouts</h1>
 <div class="row">
-    <% workouts.forEach(function(workout) { %>
-        <div class="col s12 m4">
-            <div class="card">
-                <div class="card-image">
-                    <%- editIcon(workout.user, user, workout._id, ) %>
-                </div>
-                <div class="card-content center-align">
-                    <h5><%= workout.exercise %></h5>
-                    <p><%= stripTags(truncate(workout.notes, 150)) %></p>
-                    <br>
-                        <h4><%= workout.user.name %></h4>
-                </div>
-                <div class="card-action center-align">
-                    <a href="/workouts/<%= workout._id %>" class="btn grey">Read More</a>
-                </div>
+    <div class="col s12 m8">
+        <h3><%= workouts.exercise %>
+            <small><%- editIcon(workouts.user, user, workouts._id, false ) %></small>
+        </h3>
+        <div class="card story">
+            <div class="card-content">
+                <span class="card-title"><%= formatDate(workouts.date, 'MMMM Do YYYY, h:mm:ss a') %></span>
+                <%= stripTags(truncate(workouts.notes)) %>
             </div>
         </div>
-        <% }); %>
+    </div>
+    <div class="col s12 m4">
+        <div class="card center-align">
+            <div class="card-content">
+                <span class="card-title"><%= workouts.user.name %></span>
+                <img src="#" class="circle responsive-img img-small">
+            </div>
+            <div class="card-action">
+                <a href="/workouts/user/<%-workouts.user._id %>">More From <%= workouts.user.name %></a>
+            </div>
+        </div>
+    </div>
 </div>
+
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
@@ -46,5 +50,3 @@
 </body>
 
 </html>
-
-

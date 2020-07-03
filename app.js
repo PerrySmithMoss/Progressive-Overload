@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
+const path = require('path');
 
 const app = express();
 
@@ -78,6 +79,7 @@ app.locals.shortDateFormat = shortDateFormat;
 // EJS 
 app.use(expressLayouts);
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 
 // Express bodyparser
 app.use(express.urlencoded({ extended: false}));

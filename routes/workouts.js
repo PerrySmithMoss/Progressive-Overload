@@ -52,7 +52,7 @@ router.get('/:id', ensureAuthenticated, async (req, res) => {
         return res.render('error/404')
       }
   
-      res.render('stories/show', {
+      res.render('workouts/show', {
         workouts,
       })
     } catch (error) {
