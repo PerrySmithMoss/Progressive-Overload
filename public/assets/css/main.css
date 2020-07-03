@@ -161,7 +161,21 @@ form{
 	color: #38d39f;
 }
 
-.forgot-password {
+.have-an_account {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: #00BFA6;
+	font-size: 1.2rem;
+	transition: .3s;
+	padding-top: 10px;
+}
+
+.have-an_account:hover {
+	color: #38d39f;
+}
+
+.dont-have_account {
 	display: block;
 	text-align: center;
 	text-decoration: none;
@@ -169,11 +183,14 @@ form{
 	font-size: 1.2rem;
 	transition: .3s;
 	padding-top: 25px;
-	padding-bottom: 50px;
 }
 
-.forgot-password:hover {
+.dont-have_account:hover {
 	color: #38d39f;
+}
+
+.forgot-password {
+	padding-top: 20px;
 }
 
 p {
@@ -279,5 +296,11 @@ a.sign-up-button {
 
 	.login-content{
 		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 340px){
+	.login-content {
+		padding-right: 20px;
 	}
 }
