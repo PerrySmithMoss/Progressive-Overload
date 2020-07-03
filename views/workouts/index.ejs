@@ -28,7 +28,9 @@
                     <h5><%= workout.exercise %></h5>
                     <p><%= stripTags(truncate(workout.notes, 150)) %></p>
                     <br>
+                    <a href="/workouts/user/<%- user._id %>">
                         <h4><%= workout.user.name %></h4>
+                    </a>
                 </div>
                 <div class="card-action center-align">
                     <a href="/workouts/<%= workout._id %>" class="btn grey">Read More</a>

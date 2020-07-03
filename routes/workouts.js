@@ -117,6 +117,26 @@ router.delete('/:id', ensureAuthenticated, async (req, res) => {
       console.error(error)
       return res.render('error/500')
     }
+})
+
+// User workouts
+// GET /workouts/user/:userId
+router.get('/user/:userId', ensureAuthenticated, async (req, res) => {
+    try {
+      const workouts = await workout.find({
+        user: req.params.userId,
+        status: 'public',
+      })
+        .populate('user')
+        .lean()
+  
+      res.render('workouts/index', {
+        workouts,
+      })
+    } catch (error) {
+      console.error(error)
+      res.render('error/500')
+    }
   })
 
 module.exports = router;
