@@ -20,7 +20,7 @@
 <h2>Public Workouts</h2>
 <div class="row">
     <% workouts.forEach(function(workout) { %>
-        <div class="col s4 m4 l4">
+        <div class="col s8 m4 l4">
             <div class="card">
                 <div class="card-image">
                     <%- editIcon(workout.user, user, workout._id, ) %>
@@ -34,7 +34,7 @@
                     </a>
                 </div>
                 <div class="card-action center-align">
-                    <a href="/workouts/<%= workout._id %>" class="btn grey">Read More</a>
+                    <a href="/workouts/<%= workout._id %>" class="btn grey">More</a>
                 </div>
             </div>
         </div>
