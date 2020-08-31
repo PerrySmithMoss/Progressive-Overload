@@ -299,12 +299,6 @@ a.sign-up-button {
 	}
 }
 
-@media screen and (max-width: 585px){
-	. {
-		padding-right: 20px;
-	}
-}
-
 @media screen and (max-width: 340px){
 	.login-content {
 		padding-right: 20px;
